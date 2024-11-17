@@ -20,6 +20,7 @@ export async function getOrder(id) {
 
 export async function createOrder(newOrder) {
   try {
+    console.log(newOrder)
     const res = await fetch(`${API_URL}/order`, {
       method: "POST",
       body: JSON.stringify(newOrder),
@@ -27,7 +28,6 @@ export async function createOrder(newOrder) {
         "Content-Type": "application/json",
       },
     });
-
     if (!res.ok) throw Error();
     const { data } = await res.json();
     return data;
